@@ -3,9 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidate register</title>
+    <title>Candidate Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef7fd; /* Light blue background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #d2e5f9; /* Slightly darker blue for form */
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .form-group {
+            width: 48%; /* Set width for form groups */
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #a9cbee; /* Lighter blue border for form fields */
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #333;
+        }
+        button[type="submit"] {
+            background-color: #007bff; /* Dark blue for submit button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 14px 24px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #0056b3; /* Dark blue for back button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background-color: #003d6f; /* Darker shade of blue on hover */
+        }
+    </style>
 </head>
 <body>
-    <h1>Pdf generated</h1>
+    <a href="/" class="back-button">Back</a>
+
+    <div class="container">
+        <h1>Candidate Registration</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="id_phone_number">Phone Number:</label>
+                {{ form.phone_number }}
+            </div>
+            <div class="form-group">
+                <label for="id_city">City:</label>
+                {{ form.city }}
+            </div>
+            <div class="form-group">
+                <label for="id_address">Address:</label>
+                {{ form.address }}
+            </div>
+            <div class="form-group">
+                <label for="id_tenth_school">10th School:</label>
+                {{ form.tenth_school }}
+            </div>
+            <div class="form-group">
+                <label for="id_tenth_year">10th Year:</label>
+                {{ form.tenth_year }}
+            </div>
+            <div class="form-group">
+                <label for="id_tenth_marks">10th Marks:</label>
+                {{ form.tenth_marks }}
+            </div>
+            <div class="form-group">
+                <label for="id_twelfth_school">12th School:</label>
+                {{ form.twelfth_school }}
+            </div>
+            <div class="form-group">
+                <label for="id_twelfth_year">12th Year:</label>
+                {{ form.twelfth_year }}
+            </div>
+            <div class="form-group">
+                <label for="id_twelfth_marks">12th Marks:</label>
+                {{ form.twelfth_marks }}
+            </div>
+            <div class="form-group">
+                <label for="id_skill1">Skill 1:</label>
+                {{ form.skill1 }}
+            </div>
+            <div class="form-group">
+                <label for="id_skill2">Skill 2:</label>
+                {{ form.skill2 }}
+            </div>
+            <div class="form-group">
+                <label for="id_skill3">Skill 3:</label>
+                {{ form.skill3 }}
+            </div>
+            <div class="form-group">
+                <label for="id_interested_position">Interested Position:</label>
+                {{ form.interested_position }}
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
 </body>
 </html>
