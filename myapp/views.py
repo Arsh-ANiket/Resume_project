@@ -71,7 +71,15 @@ def organization(request):
     return render(request,"myapp/org.html")
 
 def organization_signup(request):
-    return render(request,"myapp/orgsignup.html")
+    if request.method=='POST':
+        form=OrgRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('organization_signin')
+            # it will return to the function organization_signin
+    else:
+        form=OrgRegisterForm()
+    return render(request,'myapp/orgsignup.html',{'form':form})
 
 def organization_signin(request):
     return render(request,"myapp/orgsignin.html")
